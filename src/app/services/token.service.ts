@@ -55,7 +55,7 @@ export class TokenService {
       const payload = this.payload(token);
       if(payload)
       {
-        return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
+        return Object.values(this.iss).indexOf(payload.iss+"s") > -1 ? true : false;
       }
     }
     return false;
