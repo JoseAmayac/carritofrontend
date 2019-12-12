@@ -6,7 +6,7 @@ import { TokenService } from './token.service';
   providedIn: 'root'
 })
 export class CartProductService {
-  public API_URI:any = "http://carrito-compras.herokuapp.com/api";
+  public API_URI:any = "https://carrito-compras.herokuapp.com/api";
   // public API_URI:string = "http://localhost:8000/api";
 
   constructor(public http:HttpClient,public token:TokenService) { }

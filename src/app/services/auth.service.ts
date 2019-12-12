@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   
-  public API_URI:string = "http://carrito-compras.herokuapp.com/api";
+  public API_URI:string = "https://carrito-compras.herokuapp.com/api";
   // public API_URI:string = "http://localhost:8000/api";
 
 

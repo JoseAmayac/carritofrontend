@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
   public iss:any = {
-    login : 'http://carrito-compras.herokuapp.com/api/login',
-    signup: 'http://carrito-compras.herokuapp.com/api/signup'
+    login : 'https://carrito-compras.herokuapp.com/api/login',
+    signup: 'https://carrito-compras.herokuapp.com/api/signup'
   }
   constructor() { }
 
