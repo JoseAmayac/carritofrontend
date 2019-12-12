@@ -14,8 +14,8 @@ declare var $:any;
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  public user = null;
-  public comprados = [];
+  public user:any = null;
+  public comprados:any = [];
   public datos:boolean;
   public compras:boolean;
   public edit:boolean = false;
