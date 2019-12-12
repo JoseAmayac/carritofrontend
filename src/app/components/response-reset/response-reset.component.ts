@@ -9,7 +9,7 @@ declare var $:any;
   styleUrls: ['./response-reset.component.css']
 })
 export class ResponseResetComponent implements OnInit {
-  public form = {
+  private form = {
     email:null,
     password:null,
     password_confirmation:null,
