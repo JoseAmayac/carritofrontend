@@ -1,0 +1,56 @@
+<div class="row">
+    <div *ngIf= "vacio" class="center-align mt10">
+        <i class="large  material-icons hoverable">shopping_cart</i>
+        <h3  >{{ vacio }}</h3>
+        <a routerLink="/stores" class="btn waves-effect waves-light" >Compra algo</a>
+    </div>
+    <div  class="col s8" *ngIf="!vacio">
+        <div *ngIf = "!vacio">
+            <table class="centered">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Información</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let productCart of productsCart.productsCart">
+                        <td>
+                            <img height="65" width="65" [src]="productCart.product.image_path" alt="">
+                        </td>
+                        <td>
+                            {{ productCart.product.name }}
+                            <br>
+                            {{ productCart.product.category.name }}
+                            <br>
+                            <span class="negrita">Vendido por</span>: {{ productCart.product.store.name }}
+                        </td>
+                        <td>${{ productCart.product.price }}</td>
+                        <td style="width: 50px !important;">
+                            <select name="{{ productCart.id }}" class="center-align"  (change)="update(productCart.id,productCart.id)" class="select" >
+                                <option value="1" selected>{{ productCart.cantidad }}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </td>
+                        <td>${{ productCart.precio_total }}</td>
+                        <td>
+                            <i class="material-icons" (click)="modalSwal(productCart.product.id)" id="x_eliminar">clear</i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col s1"></div>
+    <div class="col s3" *ngIf="!vacio">
+        <h5 class="negrita">Total <span class="right" style="font-weight: normal !important;">${{ total }}</span></h5>
+        <a class="btn waves-effect waves-light col s12" style="margin-top: 15rem !important;margin-bottom: 1rem !important;"  (click)="realizarCompra()" name="action" >Confirmar compra</a>
+    </div>
+</div>

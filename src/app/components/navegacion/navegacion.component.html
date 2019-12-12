@@ -1,0 +1,23 @@
+<nav class="teal">
+    <div class="nav-wrapper">
+      <a routerLink="/" class="brand-logo">e-commerce</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <li><a routerLink="/signup" *ngIf="!loggedIn"><i class="fa fa-user-plus"></i> Registro</a></li>
+          <li><a routerLink="/login" *ngIf="!loggedIn"><i class="fa fa-sign-in"></i> Iniciar sesión</a></li>
+          <li><a routerLink="/stores" *ngIf="loggedIn"><i class="fa fa-shopping-bag"></i> Tiendas</a></li>
+          <li><a [routerLink]="['/productCart',id_cart]" *ngIf="loggedIn"><i class="fa fa-shopping-cart"></i> Mi carrito</a></li>
+          <li><a routerLink="/profile" *ngIf="loggedIn"><i class="fa fa-user-circle"></i> Perfil</a></li>
+          <li><a routerLink="/login" *ngIf="loggedIn" (click)="logout($event)"><i class="fa fa-sign-out"></i> Cerrar sesión</a></li>
+      </ul>
+    </div>
+</nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a routerLink="/signup" *ngIf="!loggedIn">Registro</a></li>
+    <li><a routerLink="/login" *ngIf="!loggedIn">Iniciar sesión</a></li>
+    <li><a routerLink="/stores" *ngIf="loggedIn">Tiendas</a></li>
+    <li><a [routerLink]="['/productCart',id_cart]" *ngIf="loggedIn">Mi carrito</a></li>
+    <li><a routerLink="/profile" *ngIf="loggedIn">Perfil</a></li>
+    <li><a routerLink="/login" (click)="logout($event)" *ngIf="loggedIn">Cerrar sesión</a></li>
+  </ul>

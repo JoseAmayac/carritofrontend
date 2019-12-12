@@ -1,0 +1,173 @@
+<div class="row mt10">
+    <div class="col s3">
+        <div class="center-align">
+            <div>
+                <i class="large material-icons">account_circle</i>
+                <br>
+                <span class="negrita">{{ user.name }}</span>
+            </div>
+            <div>
+                <ul>
+                    <a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <li class="1">
+                            Mis datos
+                        </li>
+                    </a>
+                    <a  routerLink="/profile/compras" routerLinkActive="active2" [routerLinkActiveOptions]="{exact: true}">
+                        <li class="2">Mis Compras</li>
+                    </a>
+                    <a class="" (click)="logout($event)">
+                        <li>Cerrar sesión</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col s9">
+        <div *ngIf="datos">
+            <h4 class="center-align" *ngIf="!edit">Perfil</h4>
+            <h4 class="center-align" *ngIf="edit">Editar Perfil</h4>
+            <div class="col s2"></div>
+            <div class="col s8">
+                <div class="card" style="border-top: 1px solid #ddd;">
+                    <div class="card-content" *ngIf="!edit">
+                        <div style="font-size: 18px;">
+                            <span class="negrita" style="margin-left: 1.3rem !important;">Nombre</span>
+                            <span class="right" style="margin-right: 2rem !important;">{{ user.name }}</span>
+    
+                            <br>
+                            <br>
+                            <span class="negrita" style="margin-left: 1.3rem !important;">Correo</span>
+                            <span class="right" style="color:gray;margin-right: 2rem !important;" >{{ user.email }}</span>
+    
+                            <br>
+                            <br>
+                            <span class="negrita" style="margin-left: 1.3rem !important;">Contraseña</span>
+                            <span class="right" style="color:gray;margin-right: 2rem !important;" >****************</span>
+    
+                            <br>
+                            <br>
+                            <br>
+                            <div class="center-align">
+                                <button class="waves-effect waves-light btn" (click)="negar()">
+                                    Editar Datos
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content" *ngIf="edit">
+                        <form action="" #updateForm=ngForm (submit)="update()">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="name" type="text" [(ngModel)]="form.name" name="name" class="validate" >
+                                    <label for="name">Nombre</label>
+                                    <div class="alert alert-danger" [ngClass]="{'success-alert': error.name}" [hidden]="!error.name">
+                                        {{ error.name }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" type="email" [(ngModel)]="user.email" name="email"  readonly>
+                                    <div class="alert alert-danger" [ngClass]="{'success-alert': error.email}"  [hidden]="!error.email">
+                                        {{ error.email }}
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="center-align">Editar Contraseña</h5>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="current_password" type="password" [(ngModel)]="form.current_password" name="current_password">
+                                    <label for="current_password">Contraseña Actual</label>
+                                    <div class="alert alert-danger" [ngClass]="{'success-alert': error.current_password}" [hidden]="!error.current_password">
+                                        {{ error.current_password }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="new_password" type="password" [(ngModel)]="form.password" name="password">
+                                    <label for="new_password">Nueva Contraseña</label>
+                                    <div class="alert alert-danger" [ngClass]="{'success-alert': error.password}" [hidden]="!error.password">
+                                        {{ error.password }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="password_confirmation" type="password" [(ngModel)]="form.password_confirmation" name="password_confirmation">
+                                    <label for="password_confirmation">Confirmar Nueva Contraseña</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s6">
+                                    <button class="btn  waves-effect waves-light col s12" type="submit" name="action" (click)="negar()">
+                                        <i class="material-icons left">arrow_back</i>
+                                        Atras
+                                    </button>
+                                </div>
+                                <div class="col s6">
+                                    <button [disabled]="!updateForm.valid" class="btn  waves-effect waves-light col s12" type="submit" name="action" >
+                                        Actualizar datos
+                                        <i class="material-icons right">how_to_reg</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col s2"></div>
+        </div>
+        <div *ngIf="compras">
+            <h3 class="center-align">Tus compras</h3>
+            <br>
+            <h5 *ngIf="comprados.productsCart">Hola, has comprado un total de ${{ comprados.productsCart[0].cart.owner.wallet }}</h5>
+            <br>
+
+            <div *ngIf="!comprados.productsCart" class="center-align">
+                <i class="large  material-icons hoverable">shopping_cart</i>
+                <h5  >No has realizado ninguna compra</h5>
+                <br>
+                <a routerLink="/stores" class="btn waves-effect waves-light" style="color: honeydew !important;">Compra algo</a>
+            </div>
+
+            
+            <table *ngIf="comprados.productsCart" class="centered">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Información</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr *ngFor = "let comprado of comprados.productsCart">
+                        <td>
+                            <img height="65" width="65" [src]="comprado.product.image_path" alt="">
+                        </td>
+                        <td>
+                            {{ comprado.product.name }}
+                            <br>
+                            <span class="negrita">Vendido por</span>: {{ comprado.product.store.name }}
+                            <br>
+                            <small> Comprado en: {{ comprado.updated_at | date }}</small>
+                        </td>
+                        <td>
+                            ${{ comprado.product.price }}
+                        </td>
+                        <td>
+                            {{ comprado.cantidad }}
+                        </td>
+                        <td>
+                            ${{ comprado.precio_total }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

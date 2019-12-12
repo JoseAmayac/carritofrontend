@@ -1,0 +1,34 @@
+.card{
+    margin-top: 0 !important;
+}
+
+.row{
+    width: 100% !important;
+}
+
+.card-title1{
+    margin-bottom: 0 !important;
+    font-size: 3rem !important;
+}
+.card-image1{
+    height: 25rem !important;
+
+}
+.card-title2{
+    font-size: 1.3rem !important;
+}
+
+.tamcard{
+    height: 10rem !important;
+}
+
+.image_store{
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+}
+
+a{
+    color: black !important;
+    cursor: pointer;
+}

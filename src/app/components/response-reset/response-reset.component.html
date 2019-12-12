@@ -1,0 +1,42 @@
+<div class="row mt10">
+        <div class="col s4"></div>
+        <div class="col s4">
+          <div class="">
+            <div class="login-form">
+                <form (ngSubmit)="reset()" #signUpForm=ngForm>
+                    <h2 class="text-center center-align ">Nueva Contraseña</h2>
+                    <div class="login">
+                        <br>
+                        <hr class="colorgraph">
+                        <br>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="email" type="email" [(ngModel)]="form.email" name="email"  required readonly>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input id="password" type="password" [(ngModel)]="form.password" name="password" class="validate" required>
+                              <label for="password">Nueva Contraseña</label>
+                              <div class="alert alert-danger" id="success-alert" [hidden]="!error.password">
+                                  {{ error.password }}
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password_confirmation" type="password" [(ngModel)]="form.password_confirmation" name="password_confirmation" class="validate" required>
+                                <label for="password_confirmation">Confirmar Contraseña</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button [disabled]="!signUpForm.valid" class="btn  waves-effect waves-light col s12" type="submit" name="action" >Restablecer
+                              <i class="material-icons right">lock</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>  
+            </div>
+        </div>
+        <div class="col s4"></div>
+      </div>

@@ -1,0 +1,54 @@
+<div class="row" *ngIf="store !=''">
+   <div class="card">
+        <div class="card-image card-image1">
+            <img [src]="store.store.image_path" class="image_store">
+            <h1 class="card-title card-title1">{{ store.store.name }}</h1>
+        </div>
+   </div>
+</div>
+<div class="row" *ngIf="storeOnly !=''">
+    <div class="card">
+        <div class="card-image card-image1">
+            <img [src]="storeOnly[0].image_path" class="image_store">
+            <h1 class="card-title card-title1">{{ storeOnly[0].name }}</h1>
+        </div>
+    </div>
+</div>
+<h3 class="center-align">Productos disponibles</h3>
+<h5 *ngIf="message" class="center-align mt10">{{ message }} <i class="fa fa-frown-o fa-2x"></i></h5>
+<div class="row">
+    <div class="col s3" *ngFor="let product of products">
+        <div class="card hoverable">
+            <a href="#modal1" (click)="abrirModal(product)" class="modal-trigger">
+                <div class="card-image">
+                    <img [src]="product.image_path" alt="" style="max-height: 18rem !important;">
+                </div>
+            </a>
+            <div class="card-content">
+                    <a (click)="addCart(product)" *ngIf="!comparar(product.id)" class="btn-floating waves-effect right waves-light green accent-3"><i class="material-icons hoverable">shopping_cart</i></a>
+
+                    <a (click)="removeToCart(product)" *ngIf="comparar(product.id)" class="btn-floating waves-effect right waves-light red accent-4"><i class="material-icons">remove_shopping_cart</i></a>
+
+                    <p>${{ product.price }}</p>
+                    <small class="card-title card-title2">{{ product.name }}</small>
+                    <p>{{ product.description }}</p>
+                </div>
+        </div>
+        <div id="modal1" class="modal">
+            <div class="modal-content center-align">
+                <img [src]="productNew.image_path" style="width: 50% !important;height: auto !important;" alt="">
+                <h4 class="mt10">{{ productNew.name }}</h4>
+
+                <span class="d-block negrita">Descripción</span>
+                <span>{{ productNew.description }}</span>
+
+                <span class="d-block negrita">Precio</span>
+                <span >${{ productNew.price }}</span>
+                
+                <span class="d-block negrita">Categoria</span>
+                <span *ngIf="productNew.category"> {{ productNew.category.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+

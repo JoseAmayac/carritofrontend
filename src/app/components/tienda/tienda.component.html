@@ -1,0 +1,28 @@
+<div class="row mt10">
+    <div class="col s3" *ngFor="let store of stores.stores">
+        <div class="card hoverable" style="height: 16.5rem !important;">
+            <div class="card-image waves-effect waves-block waves-light" >
+                <img [src]="store.image_path" class="activator" alt="" style="height: 9.73rem !important;" >
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">
+                    {{ store.name }} <i class="material-icons right">more_vert</i>
+                </span>
+                <p><a [routerLink]="['/stores',store.id]" >Visitar tienda</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4 negrita center-align">
+                    {{ store.name }} <i class="material-icons right">close</i>
+                </span>
+                <br>
+                <span class="negrita">Descripción: </span>
+                <span style="display: block !important;"> {{ store.description }}</span>
+                <br>
+                <p class="m-0 negrita">Contacto:</p>
+                <p class="m-0">{{ store.owner.name }}</p>
+                <p class="m-0">{{ store.owner.email }}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
