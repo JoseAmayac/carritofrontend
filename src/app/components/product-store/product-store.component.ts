@@ -14,23 +14,23 @@ declare var $:any;
   styleUrls: ['./product-store.component.css']
 })
 export class ProductStoreComponent implements OnInit {
-  private error = null;
-  private products = [];
-  private store = '';
-  private storeOnly = '';
-  private message = '';
-  private productNew = [];
-  private added = true;
-  private id = null;
-  private id_front = [];
-  private vendido = [];
-  private product_cart = {
+  public error:any = null;
+  public products:any = [];
+  public store:any = '';
+  public storeOnly:any = '';
+  public message:any = '';
+  public productNew:any = [];
+  public added:any = true;
+  public id:any = null;
+  public id_front:any = [];
+  public vendido:any = [];
+  public product_cart:any = {
     'product_id':null,
     'cart_id':null,
     'cantidad':1
   };
-  constructor(private route:ActivatedRoute,private service: ProductsService,private cart_product: CartProductService, 
-              private token:TokenService, private notify:SnotifyService,private spinner:Ng4LoadingSpinnerService) { }
+  constructor(public route:ActivatedRoute,public service: ProductsService,public cart_product: CartProductService, 
+              public token:TokenService, public notify:SnotifyService,public spinner:Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
       if(this.route.snapshot.paramMap.get('id'))

@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   
-  private API_URI:string = "http://carrito-compras.herokuapp.com/api";
-  // private API_URI:string = "http://localhost:8000/api";
+  public API_URI:string = "http://carrito-compras.herokuapp.com/api";
+  // public API_URI:string = "http://localhost:8000/api";
 
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient) { }
 
 
   signup(form)

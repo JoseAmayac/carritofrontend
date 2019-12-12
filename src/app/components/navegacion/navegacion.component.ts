@@ -14,10 +14,10 @@ declare var $: any;
   styleUrls: ['./navegacion.component.css']
 })
 export class NavegacionComponent implements OnInit {
-  private loggedIn:boolean;
-  private id_cart;
+  public loggedIn:boolean;
+  public id_cart:any;
 
-  constructor(private token:TokenService,private router:Router,private auth:CheckService,private spinner:Ng4LoadingSpinnerService,private notify:SnotifyService) { }
+  constructor(public token:TokenService,public router:Router,public auth:CheckService,public spinner:Ng4LoadingSpinnerService,public notify:SnotifyService) { }
 
   ngOnInit() {
     $(document).ready(function(){

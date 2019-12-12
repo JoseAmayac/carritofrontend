@@ -10,7 +10,7 @@ declare var $:any;
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  private form = {
+  public form:any = {
     name: null,
     email:null,
     role_id:2,
@@ -18,13 +18,13 @@ export class SignupComponent implements OnInit {
     password:null,
     password_confirmation:null
   }
-  private error = {
+  public error:any = {
     'name': '',
     'email':'',
     'password':''
   };
-  private errorToken:boolean = false;
-  constructor(private service:AuthService, private token:TokenService,private router:Router,private auth:CheckService) { }
+  public errorToken:boolean = false;
+  constructor(public service:AuthService, public token:TokenService,public router:Router,public auth:CheckService) { }
 
   ngOnInit() {
   }

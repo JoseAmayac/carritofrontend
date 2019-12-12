@@ -12,12 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./products-cart.component.css']
 })
 export class ProductsCartComponent implements OnInit {
-  private productsCart =[];
-  private total:number = 0;
-  private vacio = "";
-  private cantidades= [];
-  private cart_id;
-  constructor(private cart:CartProductService,private notify:SnotifyService,private spinner:Ng4LoadingSpinnerService,private router:Router) { }
+  public productsCart:any =[];
+  public total:number = 0;
+  public vacio:any = "";
+  public cantidades:any= [];
+  public cart_id:any;
+  constructor(public cart:CartProductService,public notify:SnotifyService,public spinner:Ng4LoadingSpinnerService,public router:Router) { }
 
   ngOnInit() 
   {

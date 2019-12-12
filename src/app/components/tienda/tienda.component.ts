@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./tienda.component.css']
 })
 export class TiendaComponent implements OnInit {
-  private stores = {};
-  private error = null;
-  constructor(private service:ProductsService,private router:Router) { }
+  public stores:any = {};
+  public error:any = null;
+  constructor(public service:ProductsService,public router:Router) { }
 
   ngOnInit() {
     this.service.stores().subscribe(

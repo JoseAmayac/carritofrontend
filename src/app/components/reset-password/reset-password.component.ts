@@ -10,10 +10,10 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 })
 
 export class ResetPasswordComponent implements OnInit {
-  private form = {
+  public form:any = {
     email: null
   }
-  constructor(private service:AuthService,private notify:SnotifyService,private spinner:Ng4LoadingSpinnerService) { }
+  constructor(public service:AuthService,public notify:SnotifyService,public spinner:Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
   }

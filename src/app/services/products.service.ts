@@ -7,11 +7,11 @@ import { HttpClient  } from '@angular/common/http'
 })
 export class ProductsService {
  
-  private API_URI = "http://carrito-compras.herokuapp.com/api";
-  // private API_URI:string = "http://localhost:8000/api";
+  public API_URI:any = "http://carrito-compras.herokuapp.com/api";
+  // public API_URI:string = "http://localhost:8000/api";
 
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient) { }
 
   stores()
   {

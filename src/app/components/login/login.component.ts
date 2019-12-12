@@ -13,15 +13,15 @@ declare var $:any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private form = {
+  public form:any = {
     email: null,
     password:null
   }
-  private error = null;
-  private errorToken:boolean = false;
+  public error:any = null;
+  public errorToken:boolean = false;
   
-  constructor(private service:AuthService,private token:TokenService,private auth:CheckService,private router:Router,private notify:SnotifyService,
-              private spinner:Ng4LoadingSpinnerService) { }
+  constructor(public service:AuthService,public token:TokenService,public auth:CheckService,public router:Router,public notify:SnotifyService,
+              public spinner:Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
     

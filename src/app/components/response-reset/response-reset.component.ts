@@ -9,15 +9,15 @@ declare var $:any;
   styleUrls: ['./response-reset.component.css']
 })
 export class ResponseResetComponent implements OnInit {
-  private form = {
+  public form:any = {
     email:null,
     password:null,
     password_confirmation:null,
     resetToken:null
   }
-  private error = [];
+  public error:any = [];
 
-  constructor(private route:ActivatedRoute,private service:AuthService,private router:Router,private notify:SnotifyService) {
+  constructor(public route:ActivatedRoute,public service:AuthService,public router:Router,public notify:SnotifyService) {
     route.queryParams.subscribe(params=>{
       this.form.resetToken = params.token,
       this.form.email = params.email

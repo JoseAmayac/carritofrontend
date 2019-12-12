@@ -14,26 +14,26 @@ declare var $:any;
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  private user = null;
-  private comprados = [];
-  private datos:boolean;
-  private compras:boolean;
-  private edit:boolean = false;
+  public user = null;
+  public comprados = [];
+  public datos:boolean;
+  public compras:boolean;
+  public edit:boolean = false;
 
-  private form = {
+  public form:any = {
     name:null,
     email:null,
     password:null,
     password_confirmation:null,
     current_password:null
   }
-  private error = {
+  public error:any = {
     'name': '',
     'email':'',
     'current_password':'',
     'password':''
   };
-  constructor(private token:TokenService,private notify:SnotifyService,private auth:CheckService,private router:Router,private ruta:ActivatedRoute,private service:AuthService,private cart:CartProductService) {
+  constructor(public token:TokenService,public notify:SnotifyService,public auth:CheckService,public router:Router,public ruta:ActivatedRoute,public service:AuthService,public cart:CartProductService) {
     let longitud:any = this.ruta.url;
     if(longitud.value.length > 1)
     {

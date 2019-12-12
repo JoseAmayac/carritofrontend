@@ -7,7 +7,7 @@ import { TokenService } from '../services/token.service';
   providedIn: 'root'
 })
 export class BeforeLoginGuard implements CanActivate {
-  constructor(private authService: TokenService,private router:Router){}
+  constructor(public authService: TokenService,public router:Router){}
   canActivate() {
     if(this.authService.loggedIn())
     {
