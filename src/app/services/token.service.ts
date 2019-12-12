@@ -53,9 +53,10 @@ export class TokenService {
     if(token)
     {
       const payload = this.payload(token);
+      const iss = payload.iss.replace("http","https");
       if(payload)
       {
-        return Object.values(this.iss).indexOf(payload.iss+"s") > -1 ? true : false;
+        return Object.values(this.iss).indexOf(iss) > -1 ? true : false;
       }
     }
     return false;
